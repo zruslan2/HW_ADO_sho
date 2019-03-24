@@ -1,0 +1,33 @@
+use Shop
+
+CREATE TABLE products
+(
+	Id INT IDENTITY(1,1) PRIMARY KEY,
+	ProductName NVARCHAR(256) NOT NULL,
+	Cost MONEY NOT NULL
+)
+
+CREATE TABLE customer
+(
+	Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(256) NOT NULL,
+	eMail NVARCHAR(256) NOT NULL,
+	baseCur INT NOT NULL
+)
+
+CREATE TABLE Purchase
+(
+	Id INT IDENTITY(1,1) PRIMARY KEY,
+	customer_id int NOT NULL,
+	product_id int NOT NULL,
+	infoQRCode_id int NOT NULL,
+	locationQRCode_id int NOT NULL
+)
+
+CREATE TABLE qrCodes
+(
+	Id INT IDENTITY(1,1) PRIMARY KEY,
+	user_id int NOT NULL,
+	content varbinary(max) NOT NULL,
+	QRcode_type int NOT NULL
+)
